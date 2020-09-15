@@ -14,8 +14,8 @@ android {
         applicationId "org.bsinou.android.architecture.blueprints.master"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 1002
-        versionName "2.0.2"
+        versionCode 1003
+        versionName "2.0.3"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
@@ -32,6 +32,7 @@ android {
         }
     }
 
+
     android {
         sourceSets {
             String sharedTestDir = 'src/sharedTest/java'
@@ -45,13 +46,13 @@ android {
     }
 
     buildTypes {
-        debug {
+       /* debug {
             minifyEnabled false
             testCoverageEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
-
+*/
         release {
             signingConfig signingConfigs.release
             minifyEnabled true
@@ -59,6 +60,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
+    }
+
+    buildFeatures{
+        dataBinding = true
     }
 
     flavorDimensions "default"
@@ -94,7 +99,6 @@ android {
     }
 
     dataBinding {
-        enabled = true
         enabledForTests = true
     }
 
@@ -105,6 +109,15 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    // Silence lint warnings
+    lintOptions {
+        abortOnError false
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
     }
 }
 
@@ -161,7 +174,7 @@ dependencies {
     testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
     testImplementation "androidx.test:rules:$androidXTestRulesVersion"
     // Once https://issuetracker.google.com/127986458 is fixed this can be testImplementation
-    implementation "androidx.fragment:fragment-testing:$fragmentVersion"
+    testImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
     implementation "androidx.test:core:$androidXTestCoreVersion"
     implementation "androidx.fragment:fragment:$fragmentVersion"
 
@@ -188,4 +201,9 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+
+    //additional
+    // to compile with Java 11
+    // See
+    implementation "javax.xml.bind:jaxb-api:2.2.12"
 }

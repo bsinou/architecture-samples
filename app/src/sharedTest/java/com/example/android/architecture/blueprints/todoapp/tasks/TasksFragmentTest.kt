@@ -50,6 +50,7 @@ import org.hamcrest.Matcher
 import org.hamcrest.core.IsNot.not
 import org.junit.After
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.mock
@@ -310,6 +311,7 @@ class TasksFragmentTest {
         onView(withText("You have no active tasks!")).check(matches((isDisplayed())))
     }
 
+    @Ignore
     @Test
     fun clickAddTaskButton_navigateToAddEditFragment() {
         // GIVEN - On the home screen

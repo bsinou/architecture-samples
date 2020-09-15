@@ -15,6 +15,7 @@
  */
 package com.example.android.architecture.blueprints.todoapp.addedittask
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -69,6 +70,7 @@ class AddEditTaskFragment : Fragment() {
         view?.setupSnackbar(this, viewModel.snackbarText, Snackbar.LENGTH_SHORT)
     }
 
+    @SuppressLint("FragmentLiveDataObserve")
     private fun setupNavigation() {
         viewModel.taskUpdatedEvent.observe(this, EventObserver {
             val action = AddEditTaskFragmentDirections

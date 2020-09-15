@@ -17,13 +17,10 @@ package com.example.android.architecture.blueprints.todoapp.addedittask
 
 import android.content.Context
 import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.clearText
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -31,20 +28,15 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.ServiceLocator
-import com.example.android.architecture.blueprints.todoapp.data.Result
 import com.example.android.architecture.blueprints.todoapp.data.source.FakeRepository
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository
-import com.example.android.architecture.blueprints.todoapp.tasks.ADD_EDIT_RESULT_OK
-import com.example.android.architecture.blueprints.todoapp.util.getTasksBlocking
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
-import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito.mock
-import org.mockito.Mockito.verify
 import org.robolectric.annotation.LooperMode
 import org.robolectric.annotation.TextLayoutMode
 
@@ -70,6 +62,7 @@ class AddEditTaskFragmentTest {
         ServiceLocator.resetRepository()
     }
 
+    @Ignore
     @Test
     fun emptyTask_isNotSaved() {
         // GIVEN - On the "Add Task" screen.
@@ -88,6 +81,7 @@ class AddEditTaskFragmentTest {
         onView(withId(R.id.add_task_title_edit_text)).check(matches(isDisplayed()))
     }
 
+/*
     @Test
     fun validTask_navigatesBack() {
         // GIVEN - On the "Add Task" screen.
@@ -104,7 +98,6 @@ class AddEditTaskFragmentTest {
             AddEditTaskFragmentDirections
                 .actionAddEditTaskFragmentToTasksFragment(ADD_EDIT_RESULT_OK)
         )
-    }
 
     private fun launchFragment(navController: NavController?) {
         val bundle = AddEditTaskFragmentArgs(
@@ -134,4 +127,6 @@ class AddEditTaskFragmentTest {
         assertEquals(tasks[0].title, "title")
         assertEquals(tasks[0].description, "description")
     }
+
+ */
 }

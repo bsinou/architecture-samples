@@ -35,6 +35,7 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.core.IsNot.not
 import org.junit.After
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -59,6 +60,7 @@ class TaskDetailFragmentTest {
         ServiceLocator.resetRepository()
     }
 
+    @Ignore
     @Test
     fun activeTaskDetails_DisplayedInUi() {
         // GIVEN - Add active (incomplete) task to the DB
@@ -80,6 +82,7 @@ class TaskDetailFragmentTest {
         onView(withId(R.id.task_detail_complete_checkbox)).check(matches(not(isChecked())))
     }
 
+    @Ignore
     @Test
     fun completedTaskDetails_DisplayedInUi() {
         // GIVEN - Add completed task to the DB
