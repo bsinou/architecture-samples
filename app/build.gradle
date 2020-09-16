@@ -11,20 +11,17 @@ android {
     compileSdkVersion rootProject.compileSdkVersion
 
     defaultConfig {
-        applicationId "org.bsinou.android.architecture.blueprints.master"
+        applicationId "org.bsinou.android.firsthops.todo"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 1003
-        versionName "2.0.3"
+        versionCode 1
+        versionName "0.0.1"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     signingConfigs {
         release {
-            // You need to specify either an absolute path or include the
-            // keystore file in the same directory as the build.gradle file.
-            //storeFile file("my-release-key.jks")
             storeFile file(localProperties['storeFile'])
             storePassword localProperties['storePassword']
             keyAlias localProperties['keyAlias']
@@ -46,13 +43,14 @@ android {
     }
 
     buildTypes {
-       /* debug {
+
+        debug {
             minifyEnabled false
             testCoverageEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
-*/
+
         release {
             signingConfig signingConfigs.release
             minifyEnabled true
@@ -79,7 +77,7 @@ android {
         }
     }
 
-    // Remove mockRelease as it's not needed.
+    // Remove mockRelease as it is not needed.
     android.variantFilter { variant ->
         if (variant.buildType.name == 'release'
                 && variant.getFlavors().get(0).name == 'mock') {
@@ -202,8 +200,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
 
-    //additional
-    // to compile with Java 11
+    // Additional (to be able to compile with Java 11)
     // See
-    implementation "javax.xml.bind:jaxb-api:2.2.12"
+    implementation "javax.xml.bind:jaxb-api:2.3.1"
 }

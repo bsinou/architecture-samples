@@ -3,6 +3,33 @@
 <img src="https://github.com/googlesamples/android-architecture/wiki/images/aab-logov2.png" alt="Illustration by Virginia Poltrack"/>
 </p>
 
+## About this Fork
+
+### App Name
+
+Bruno's TODOs list
+
+### Short description 
+
+Another version of the TODO project from Android tutorials to test publication
+
+### Full description 
+
+This app is not meant to be widely published but is rather a dress rehearsal for other already existing project that I have to now update and maintain.
+
+This version is meant to test full build and publish process using a developer signing key (that is without app bundle and without opt in for Google play store signing).
+
+Please feel free to directly contact me in case it is an issue in anyway.
+
+Thus said, the App provide a basic Todo List tool to create, update and manage a list of tasks.
+
+It is an updated fork of the https://github.com/android/architecture-samples repository and share the same Apache 2 licensing, that is that this App is shared on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+All original work is Copyright 2014 - The Android Open Source Project. Modification by @bsinou.
+
+
+## Original content
+
 Android Architecture Blueprints is a project to showcase different architectural approaches to developing Android apps. In its different branches you'll find the same app (a TODO app) implemented with small differences.
 
 In this branch you'll find:
